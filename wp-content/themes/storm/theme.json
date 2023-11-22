@@ -204,9 +204,18 @@
               "fontFamily": "Inter",
               "fontStretch": "normal",
               "fontStyle": "normal",
-              "fontWeight": "300 900",
+              "fontWeight": "300",
               "src": [
-                "file:./assets/fonts/inter/Inter-VariableFont_slnt,wght.woff2"
+                "file:./assets/dist/fonts/inter-v13-latin-300.woff2"
+              ]
+            },
+            {
+              "fontFamily": "Inter",
+              "fontStretch": "normal",
+              "fontStyle": "normal",
+              "fontWeight": "900",
+              "src": [
+                "file:./assets/dist/fonts/inter-v13-latin-900.woff2"
               ]
             }
           ],
@@ -220,19 +229,19 @@
               "fontFamily": "Cardo",
               "fontStyle": "normal",
               "fontWeight": "400",
-              "src": ["file:./assets/fonts/cardo/cardo_normal_400.woff2"]
+              "src": ["file:./assets/dist/fonts/cardo-v19-latin-regular.woff2"]
             },
             {
               "fontFamily": "Cardo",
               "fontStyle": "italic",
               "fontWeight": "400",
-              "src": ["file:./assets/fonts/cardo/cardo_italic_400.woff2"]
+              "src": ["file:./assets/dist/fonts/cardo-v19-latin-italic.woff2"]
             },
             {
               "fontFamily": "Cardo",
               "fontStyle": "normal",
               "fontWeight": "700",
-              "src": ["file:./assets/fonts/cardo/cardo_normal_700.woff2"]
+              "src": ["file:./assets/dist/fonts/cardo-v19-latin-700.woff2"]
             }
           ],
           "fontFamily": "Cardo",
@@ -293,7 +302,14 @@
       ],
       "writingMode": true
     },
-    "useRootPaddingAwareAlignments": true
+    "useRootPaddingAwareAlignments": true,
+    "custom": {
+      "padding": {
+        "section": {
+          "y": "clamp( 2.5rem, 12vw, 6rem )"
+        }
+      }
+    }
   },
   "styles": {
     "blocks": {
@@ -898,8 +914,10 @@
     "spacing": {
       "blockGap": "1.2rem",
       "padding": {
-        "left": "var(--wp--preset--spacing--50)",
-        "right": "var(--wp--preset--spacing--50)"
+        "top": "0",
+        "bottom": "0",
+        "left": "clamp( 1.5rem, 7vw, 2.5rem )",
+        "right": "clamp( 1.5rem, 7vw, 2.5rem )"
       }
     },
     "typography": {

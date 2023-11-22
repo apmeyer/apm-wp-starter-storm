@@ -1,0 +1,9 @@
+.wp-site-blocks.is-layout-constrained > .alignfull {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.wp-site-blocks.is-layout-constrained > .wp-block-group.alignfull {
+    padding-bottom: var(--wp--custom--padding--section--y);
+    padding-top: var(--wp--custom--padding--section--y);
+}
