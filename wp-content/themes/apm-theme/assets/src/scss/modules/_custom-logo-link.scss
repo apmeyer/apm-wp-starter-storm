@@ -1,0 +1,18 @@
+@use '../abstracts' as *;
+
+.custom-logo-link {
+  display: block;
+  max-width: 11rem;
+
+  img {
+    display: block;
+    height: auto;
+    min-height: calc( var(--apm-theme-mobile-header-bar-height) - 1rem );
+    width: 100%;
+  }
+
+  @include for-above-menu-breakpoint {
+    max-width: 14rem;
+  }
+
+}

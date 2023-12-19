@@ -1,0 +1,27 @@
+@use 'abstracts' as *;
+
+@include establish-foundational-layout-rules( 'body > .is-layout-flow' );
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Customize the block editor title block, effectively removing
+it as a design element that would be output to the page, and
+using instead as an admin reference.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.edit-post-visual-editor__post-title-wrapper {
+  margin: 0 !important;
+  padding: 1rem !important;
+}
+
+.edit-post-visual-editor__post-title-wrapper h1 {
+  font-family: var(--wp--preset--font-family--system-sans-serif) !important;
+  font-size: var(--wp--preset--font-size--medium) !important;
+  font-weight: bold !important;
+  margin: 0 auto !important;
+  max-width: none !important;
+}
+
+.edit-post-visual-editor__post-title-wrapper h1::before {
+  content: 'Title: ';
+  display: inline-block;
+  font-weight: normal;
+}

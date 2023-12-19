@@ -1,0 +1,11 @@
+@use '../abstracts' as *;
+
+html {
+  scroll-padding-top: var(--apm-theme-mobile-header-bar-height);
+  scroll-behavior: smooth;
+
+  @include for-above-menu-breakpoint {
+    scroll-padding-top: calc( var(--apm-theme-main-menu-height) + var(--apm-theme-utility-menu-height) );
+  }
+
+}

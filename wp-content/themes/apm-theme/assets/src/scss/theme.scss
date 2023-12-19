@@ -1,0 +1,12 @@
+@use 'abstracts' as *;
+@use 'base' as *;
+@use 'modules' as *;
+
+body {
+  --apm-theme-utility-menu-height: 2rem;
+  --apm-theme-main-menu-height: 5rem;
+  --apm-theme-mobile-header-bar-height: 4rem;
+}
+
+@include establish-foundational-layout-rules;
+

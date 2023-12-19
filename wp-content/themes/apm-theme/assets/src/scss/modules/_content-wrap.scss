@@ -1,0 +1,6 @@
+@use '../abstracts' as *;
+
+.content-wrap {
+  position: relative;
+  z-index: 1;
+}

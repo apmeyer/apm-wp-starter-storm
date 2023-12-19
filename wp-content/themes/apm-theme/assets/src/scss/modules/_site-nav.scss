@@ -1,0 +1,64 @@
+@use '../abstracts' as *;
+
+.site-nav {
+  --apm-theme-mobile-menu-width: 17rem;
+
+  @include for-below-menu-breakpoint {
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+
+    &__button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: block;
+      height: var(--apm-theme-mobile-header-bar-height);
+      margin: 0;
+      right: 100%;
+      padding: 0 1rem;
+      position: absolute;
+      top: 0;
+      z-index: 2;
+    }
+
+    &__inner-container {
+      background-color: var(--wp--preset--color--brand-a);
+      box-shadow: 0 0 1rem rgba(0,0,0,0.15);
+      display: none;
+      height: 100vh;
+      padding: var(--apm-theme-mobile-header-bar-height) 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: width .25s linear;
+      width: 0;
+      z-index: 1;
+
+      &.is-block { display: block; }
+
+      &.transition-in {
+        width: var(--apm-theme-mobile-menu-width);
+        max-width: 100vw;
+      }
+
+    }
+
+    &__menus {
+      overflow: hidden;
+      max-width: 100%;
+      min-width: var(--apm-theme-mobile-menu-width);
+      width: 100%;
+    }
+
+  }
+
+  @include for-above-menu-breakpoint {
+
+    &__button { display: none; }
+
+  }
+
+}

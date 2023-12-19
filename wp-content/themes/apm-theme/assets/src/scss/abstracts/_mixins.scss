@@ -1,0 +1,40 @@
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// This is used on both the front and backend, but each has a different
+// selector the rules must be applied to. The selector is passed in as
+// an argument.
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@mixin establish-foundational-layout-rules( $selector: '.wp-site-blocks' ) {
+
+  #{$selector}.is-layout-flow > .alignfull {
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+
+  #{$selector}.is-layout-flow > .wp-block-group.alignfull {
+    padding-bottom: var(--wp--custom--spacing--section-y-pad);
+    padding-top: var(--wp--custom--spacing--section-y-pad);
+  }
+
+  #{$selector}.is-layout-flow > .wp-block-cover.alignfull {
+    padding-right: var(--wp--style--root--padding-right);
+    padding-left: var(--wp--style--root--padding-left);
+  }
+
+  #{$selector}.is-layout-flow > .wp-block-cover.alignfull > .wp-block-cover__inner-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+}
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//  Breakpoints
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@mixin for-below-menu-breakpoint {
+  @media ( max-width: 949px ) { @content; }
+}
+
+@mixin for-above-menu-breakpoint {
+  @media ( min-width: 950px ) { @content; }
+}

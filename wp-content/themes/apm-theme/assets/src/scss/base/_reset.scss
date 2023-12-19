@@ -1,0 +1,5 @@
+@use '../abstracts' as *;
+
+// Not much will be reset so that fallbacks use either
+// native browser styles, or WordPress block editor defaults.
+*, *:before, *:after { box-sizing: border-box }
