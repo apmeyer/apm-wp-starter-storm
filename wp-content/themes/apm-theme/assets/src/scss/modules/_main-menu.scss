@@ -38,6 +38,7 @@
         height: var(--apm-theme-main-menu-height);
         margin: 0;
         position: relative;
+        transition: height var(--apm-theme-header-compression-speed) ease;
 
         a {
           font-weight: 600;

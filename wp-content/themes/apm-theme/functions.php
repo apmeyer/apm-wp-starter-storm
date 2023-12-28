@@ -3,16 +3,37 @@
 $theme = wp_get_theme();
 define( "APM_THEME_VERSION", $theme->get( 'Version' ) );
 
-require_once(get_template_directory().'/APM/Functions/Cleanup.php');
-require_once(get_template_directory().'/APM/Functions/Admin.php');
-require_once(get_template_directory().'/APM/Functions/Theme.php');
-require_once(get_template_directory().'/APM/Functions/Block-Editor.php');
+require_once( get_template_directory().'/APM/Classes/Site-Header-Nav-Walker.php' );
+require_once( get_template_directory().'/APM/Functions/Cleanup.php' );
+require_once( get_template_directory().'/APM/Functions/Admin.php' );
+require_once( get_template_directory().'/APM/Functions/Theme.php' );
+require_once( get_template_directory().'/APM/Functions/Block-Editor.php' );
 
 APM_Functions\Cleanup\init();
 APM_Functions\Admin\init();
 APM_Functions\Theme\init();
 APM_Functions\Block_Editor\init();
 
+// ------------------------------------------------------------------------------------------------
+
+if ( !function_exists('write_log') ) {
+
+    // Only for local debugging
+    if ( wp_get_environment_type() !== 'local' ) return;
+
+    function write_log( $log ) {
+        if ( true === WP_DEBUG ) {
+            if ( is_array( $log ) || is_object( $log ) ) {
+                error_log( print_r( $log, true ) );
+            } else {
+                error_log( $log );
+            }
+        }
+    }
+
+}
+
+// ------------------------------------------------------------------------------------------------
 
 /*
  * Temporary fix for theme.json block CSS not outputting in hybrid themes
@@ -31,18 +52,3 @@ function wp_enqueue_global_styles_custom_css_fix() {
     if ( ! empty( $custom_css ) ) wp_add_inline_style( 'global-styles', $custom_css );
 }
 add_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles_custom_css_fix' );
-
-
-if (!function_exists('write_log')) {
-
-    function write_log($log) {
-        if (true === WP_DEBUG) {
-            if (is_array($log) || is_object($log)) {
-                error_log(print_r($log, true));
-            } else {
-                error_log($log);
-            }
-        }
-    }
-
-}

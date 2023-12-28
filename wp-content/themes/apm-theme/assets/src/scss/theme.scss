@@ -3,9 +3,18 @@
 @use 'modules' as *;
 
 body {
+  --apm-theme-header-compression-speed: .5s;
   --apm-theme-utility-menu-height: 2rem;
   --apm-theme-main-menu-height: 5rem;
   --apm-theme-mobile-header-bar-height: 4rem;
+  --apm-theme-header-wrap-height: 7rem;
+
+  &.is-compressed {
+    --apm-theme-utility-menu-height: 1.6rem;
+    --apm-theme-main-menu-height: 4rem;
+    --apm-theme-mobile-header-bar-height: 3rem;
+  }
+
 }
 
 @include establish-foundational-layout-rules;

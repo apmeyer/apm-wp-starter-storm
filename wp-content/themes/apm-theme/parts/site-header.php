@@ -1,4 +1,4 @@
-<header class="site-header-wrap">
+<header class="site-header-wrap" id="siteHeaderWrap">
     <div class="site-header has-utility-menu" id="siteHeader">
         <div class="site-header__inner-container">
 
@@ -17,7 +17,8 @@
                             'menu_id' => 'main_nav_menu',
                             'container' => 'div',
                             'container_class' => 'main-menu slide-in-menu',
-                            'fallback_cb' => false
+                            'fallback_cb' => false,
+                            // 'walker' => new APM_Functions\Classes\Site_Header_Nav_Walker
                         ] ); ?>
                         <?php wp_nav_menu( [
                             'menu' => 'site-header-utility-menu',

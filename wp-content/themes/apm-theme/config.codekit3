@@ -220,6 +220,17 @@
       "oAP" : "\/assets\/dist\/js\/theme.min.js.map",
       "oF" : 0
     },
+    "\/assets\/src\/js\/modules\/_scroll.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 1,
+      "oAP" : "\/assets\/src\/js\/modules\/_scroll-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
     "\/assets\/src\/js\/modules\/_site-header.js" : {
       "bF" : 0,
       "ft" : 64,
@@ -282,6 +293,21 @@
       "ma" : 0,
       "oA" : 1,
       "oAP" : "\/assets\/src\/scss\/abstracts\/_mixins.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
+    "\/assets\/src\/scss\/base\/_animation.scss" : {
+      "aP" : 0,
+      "bl" : 0,
+      "co" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/assets\/src\/scss\/base\/_animation.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,
@@ -663,9 +689,9 @@
       "co" : 0,
       "ft" : 16,
       "ma" : 0,
-      "oA" : 0,
+      "oA" : 1,
       "oAP" : "\/style-min.css",
-      "oF" : 0,
+      "oF" : 1,
       "pg" : 0
     },
     "\/theme.json" : {

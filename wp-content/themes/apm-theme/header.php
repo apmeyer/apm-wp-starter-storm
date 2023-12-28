@@ -10,7 +10,7 @@
     </script>
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class( 'is-at-top' ); ?>>
     <?php wp_body_open(); ?>
 
     <a href="#mainContent" class="screen-reader-text"><?php _e( 'Skip to main content', 'apm-theme' ); ?></a>

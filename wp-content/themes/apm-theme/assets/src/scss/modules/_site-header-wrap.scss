@@ -1,18 +1,15 @@
 @use '../abstracts' as *;
 
 .site-header-wrap {
+  min-height: 1px;
   position: sticky;
   top: 0;
   z-index: 3;
+  width: 0;
 
-  @include for-below-menu-breakpoint {
-    height: var(--apm-theme-mobile-header-bar-height);
+  &.is-style-overlay {
+    height: 0;
+    min-height: 0;
   }
-
-  @include for-above-menu-breakpoint {
-    height: calc( var(--apm-theme-utility-menu-height) + var(--apm-theme-main-menu-height) );
-  }
-
-  &.is-style-overlay { height: 0 }
 
 }

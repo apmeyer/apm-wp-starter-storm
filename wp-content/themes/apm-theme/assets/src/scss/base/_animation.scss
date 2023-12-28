@@ -1,0 +1,67 @@
+.js .animate { opacity: 0; }
+
+body {
+  --apm--animation-distance-pos: 2rem;
+  --apm--animation-distance-neg: -2rem;
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.fade-in.animated             { animation-name: fade-in }
+.fade-in-from-left.animated   { animation-name: fade-in-from-left }
+.fade-in-from-right.animated  { animation-name: fade-in-from-right }
+.fade-in-from-bottom.animated { animation-name: fade-in-from-bottom }
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-from-left {
+  from {
+    opacity: 0;
+    transform: translate3d( var(--apm--animation-distance-neg), 0, 0 );
+  }
+  to {
+    opacity: 1;
+    transform: translate3d( 0, 0, 0 );
+  }
+}
+
+@keyframes fade-in-from-right {
+  from {
+    opacity: 0;
+    transform: translate3d( var(--apm--animation-distance-pos), 0, 0 );
+  }
+  to {
+    opacity: 1;
+    transform: translate3d( 0, 0, 0 );
+  }
+}
+
+@keyframes fade-in-from-bottom {
+  from {
+    opacity: 0;
+    transform: translate3d( 0, var(--apm--animation-distance-pos), 0 );
+  }
+  to {
+    opacity: 1;
+    transform: translate3d( 0, 0, 0 );
+  }
+}
+
+@media (prefers-reduced-motion) {
+
+  .animated,
+  .animate {
+    opacity: 1.0 !important;
+    -webkit-animation: unset !important;
+    animation: unset !important;
+    -webkit-transition: none !important;
+    transition: none !important;
+  }
+
+}

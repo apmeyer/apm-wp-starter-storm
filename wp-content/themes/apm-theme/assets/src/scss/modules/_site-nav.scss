@@ -11,16 +11,18 @@
     width: 0;
 
     &__button {
+      align-items: center;
       background: none;
       border: none;
       cursor: pointer;
-      display: block;
+      display: flex;
       height: var(--apm-theme-mobile-header-bar-height);
       margin: 0;
       right: 100%;
       padding: 0 1rem;
       position: absolute;
       top: 0;
+      transition: height var(--apm-theme-header-compression-speed) ease;
       z-index: 2;
     }
 

@@ -91,22 +91,15 @@ const hideAllSubmenusOnDesktop = function() {
 
 const showDesktopSubmenu = function( item, timer ) {
     if ( window.innerWidth >= breakpoint ) {
-
         clearTimeout( timer )
         hideAllSubmenusOnDesktop()
-
-        // item.classList.add( 'is-ready-to-transition' )
         item.querySelector( 'a' ).setAttribute( 'aria-expanded', 'true' )
-
     }
 }
 
 
 const hideDesktopSubmenu = function( item ) {
-
-    // item.classList.remove( 'is-ready-to-transition' )
     item.querySelector( 'a' ).setAttribute( 'aria-expanded', 'false' )
-
 }
 
 

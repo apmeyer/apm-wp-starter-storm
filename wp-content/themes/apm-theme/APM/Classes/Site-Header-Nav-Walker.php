@@ -1,10 +1,8 @@
 <?php
 
-/**
- * These Functions are all about customizing WordPress menus
- */
-
 namespace APM_Functions\Classes;
+
+use Walker_Nav_Menu;
 
 class Site_Header_Nav_Walker extends Walker_Nav_Menu {
 
@@ -21,13 +19,8 @@ class Site_Header_Nav_Walker extends Walker_Nav_Menu {
         $icon    = get_field( 'menu_item_icon', $item );
         $target  = '_self';
 
-        if ( !empty( $item->target ) ) {
-            $target = $item->target;
-        }
-
-        if ( !empty( $icon ) ) {
-            $item->classes[] = 'has-icon';
-        }
+        if ( !empty( $item->target ) ) $target = $item->target;
+        if ( !empty( $icon ) ) $item->classes[] = 'has-icon';
 
         $output .= '<li class="' . implode( ' ', $item->classes ) . '" id="' . $item_id . '">';
         $output .= '<a class="menu-item__link bypass-default-style" href="' . $url . '" target="'.$target.'">';

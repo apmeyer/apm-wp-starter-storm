@@ -10,10 +10,6 @@
 
   a { text-decoration: none; }
 
-  @include for-below-menu-breakpoint {
-
-  }
-
   @include for-above-menu-breakpoint {
     background-color: var(--wp--preset--color--brand-c);
     display: flex;
@@ -28,10 +24,11 @@
     > ul {
       align-items: center;
       display: flex;
-      height: var(--apm-theme-utility-menu-height);
+      min-height: var(--apm-theme-utility-menu-height);
       justify-content: flex-end;
       gap: 2rem;
       max-width: var(--wp--style--global--wide-size);
+      transition: min-height var(--apm-theme-header-compression-speed) ease;
       width: 100%;
     }
 

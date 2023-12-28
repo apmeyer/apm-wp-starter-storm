@@ -12,6 +12,7 @@
   position: absolute;
   right: 0;
   top: 0;
+  transition: height var(--apm-theme-mobile-header-bar-height) ease;
   width: 4.15rem;
   z-index: 2;
 
