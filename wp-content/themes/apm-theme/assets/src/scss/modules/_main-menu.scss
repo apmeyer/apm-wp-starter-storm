@@ -74,8 +74,18 @@
 
     }
 
-    a[aria-expanded="true"] + button + ul { display: block }
+    a[aria-expanded="true"] + button + ul {
+      animation: menu-fade-in-up 400ms;
+      display: block;
+    }
 
   }
 
+}
+
+@keyframes menu-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10%);
+  }
 }

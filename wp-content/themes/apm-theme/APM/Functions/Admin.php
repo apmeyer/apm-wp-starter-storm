@@ -2,6 +2,14 @@
 
 namespace APM_Functions\Admin;
 
+/**
+ * This file is all about customizing the WordPress admin.
+ *
+ * Tasks include:
+ * -- Customizing the menu order
+ * -- Adding "Patterns" as a menu option
+ * -- Adding theme menu location references
+ */
 
 function init(): void {
 
@@ -24,7 +32,6 @@ function set_custom_menu_order( $menu_ord ): array|bool {
         'separator1',               // First separator
         'edit.php',                 // Posts
         'edit.php?post_type=page',
-        // 'edit.php?post_type=thing',
         'gf_edit_forms',
         'upload.php',               // Media
         'separator2',
@@ -39,6 +46,10 @@ function set_custom_menu_order( $menu_ord ): array|bool {
 }
 
 
+/**
+ * Add "Patterns" to WordPress admin menu so that it can be
+ * viewed like any other custom post type.
+ */
 function add_patterns_to_admin_menu(): void {
 
     add_menu_page( 'Patterns', 'Patterns', 'edit_posts', 'edit.php?post_type=wp_block', '', 'dashicons-editor-table', 22 );

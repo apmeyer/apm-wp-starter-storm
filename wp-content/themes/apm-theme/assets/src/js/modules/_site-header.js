@@ -1,7 +1,7 @@
 const mobileMenuButton  = document.getElementById( 'mobileMenuButton' )
 const mobileMenuWrap    = document.getElementById( 'mobileMenuWrap' )
 const siteNav           = document.getElementById( 'siteNav' )
-const menuItems         = document.querySelectorAll( '.main-menu .menu-item-has-children' )
+const menuItems         = document.querySelectorAll( '.main-menu li.menu-item-has-children' )
 const breakpoint        = 950
 const devMode           = true
 let isTransitioning     = false
@@ -64,9 +64,8 @@ const addMobileSubmenuButtons = function() {
         const subMenu = item.querySelector( '.sub-menu' )
         const subMenuId = menuItemId + '_submenu';
 
-        subMenu.setAttribute( 'id', subMenuId )
-
         a.setAttribute( 'aria-expanded', 'false' )
+        subMenu.setAttribute( 'id', subMenuId )
 
         const button = document.createElement('button')
         button.setAttribute( 'aria-controls', subMenuId );
@@ -83,6 +82,7 @@ const addMobileSubmenuButtons = function() {
 const hideAllSubmenusOnDesktop = function() {
     if ( window.innerWidth >= breakpoint ) {
         menuItems.forEach( item => {
+            item.classList.remove( 'is-ready-to-transition' )
             item.querySelector( 'a' ).setAttribute( 'aria-expanded', 'false' )
         } )
     }
@@ -91,16 +91,30 @@ const hideAllSubmenusOnDesktop = function() {
 
 const showDesktopSubmenu = function( item, timer ) {
     if ( window.innerWidth >= breakpoint ) {
+
         clearTimeout( timer )
         hideAllSubmenusOnDesktop()
+
+        // item.classList.add( 'is-ready-to-transition' )
         item.querySelector( 'a' ).setAttribute( 'aria-expanded', 'true' )
+
     }
+}
+
+
+const hideDesktopSubmenu = function( item ) {
+
+    // item.classList.remove( 'is-ready-to-transition' )
+    item.querySelector( 'a' ).setAttribute( 'aria-expanded', 'false' )
+
 }
 
 
 const addEventListeners = function() {
 
     if ( !mobileMenuButton || !menuItems ) return
+
+    const exitActions = [ 'mouseout', 'focusout' ]
 
     // Toggle the menu on button click
     mobileMenuButton.addEventListener( 'click', ( event ) => {
@@ -142,7 +156,8 @@ const addEventListeners = function() {
         const a = item.querySelector( 'a' )
 
         // On wide screens, show submenu on hover
-        item.addEventListener( 'mouseover', () => {
+        item.addEventListener( 'mouseover', event => {
+            if ( item.contains( event.relatedTarget ) ) return
             showDesktopSubmenu( item, timer )
         } )
 
@@ -151,24 +166,19 @@ const addEventListeners = function() {
             showDesktopSubmenu( item, timer )
         } )
 
-        // On wide screens, hide menu on mouse out
-        item.addEventListener( 'mouseout', () => {
-            if ( window.innerWidth >= breakpoint ) {
-                timer = setTimeout( () => {
-                    item.querySelector( 'a' ).setAttribute( 'aria-expanded', 'false' )
-                }, 500 )
-            }
-        } )
+        // On wide screens, hide menu on mouse out and focus out
+        exitActions.forEach( action => {
+            item.addEventListener( action, event => {
 
-        // On wide screens, hide menu on focus out
-        item.addEventListener( 'focusout', event => {
-            if ( window.innerWidth >= breakpoint ) {
-                timer = setTimeout( () => {
-                    if ( !item.contains( event.relatedTarget ) ) {
-                        item.querySelector( 'a' ).setAttribute( 'aria-expanded', 'false' )
-                    }
-                }, 500 )
-            }
+                if ( item.contains( event.relatedTarget ) ) return
+
+                if ( window.innerWidth >= breakpoint ) {
+                    timer = setTimeout( () => {
+                        hideDesktopSubmenu( item )
+                    }, 500 )
+                }
+
+            } )
         } )
 
     } )
@@ -192,12 +202,14 @@ const addEventListeners = function() {
 
                 if ( button.getAttribute('aria-expanded') === 'false' ) {
                     button.setAttribute( 'aria-expanded', 'true' )
+                    button.previousSibling.setAttribute( 'aria-expanded', 'true' )
                     menu.style.display = 'block'
                     setTimeout( () => {
                         menu.style.maxHeight = menu.scrollHeight + "px"
                     }, 5 )
                 } else {
                     button.setAttribute( 'aria-expanded', 'false' )
+                    button.previousSibling.setAttribute( 'aria-expanded', 'false' )
                     menu.style.maxHeight = 0 + "px"
                     setTimeout( () => {
                         menu.removeAttribute( 'style' )

@@ -12,7 +12,7 @@
                 <div class="site-nav__inner-container" id="mobileMenuWrap">
                     <div class="site-nav__menus">
                         <?php wp_nav_menu( [
-                            'menu' => 'main-menu',
+                            'menu' => 'site-header-main-menu',
                             'menu_class' => 'wp-main-menu',
                             'menu_id' => 'main_nav_menu',
                             'container' => 'div',
@@ -20,7 +20,7 @@
                             'fallback_cb' => false
                         ] ); ?>
                         <?php wp_nav_menu( [
-                            'menu' => 'utility-menu',
+                            'menu' => 'site-header-utility-menu',
                             'menu_class' => 'wp-utility-menu',
                             'menu_id' => 'utility_nav_menu',
                             'container' => 'div',

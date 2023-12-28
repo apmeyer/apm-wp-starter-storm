@@ -13,6 +13,7 @@ function init(): void {
     add_filter( 'body_class', 'APM_Functions\Theme\add_body_classes' );
     add_action( 'add_html_classes', 'APM_Functions\Theme\add_html_classes' );
 
+    // Third party
     add_filter( 'gform_confirmation_anchor', '__return_true' );
 
 }
@@ -53,8 +54,8 @@ function enqueue_theme_styles(): void {
 
 function register_menu_locations(): void {
 
-    register_nav_menu( 'main-menu', 'Main Menu' );
-    register_nav_menu( 'utility-menu', 'Utility Menu' );
+    register_nav_menu( 'site-header-main-menu', 'Site Header Main Menu' );
+    register_nav_menu( 'site-header-utility-menu', 'Site Header Utility Menu' );
 
 }
 
