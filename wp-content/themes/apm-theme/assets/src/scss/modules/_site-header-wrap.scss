@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 .site-header-wrap {
-  min-height: 1px;
+  min-height: var(--apm-theme-header-wrap-height);
   position: sticky;
   top: 0;
   z-index: 3;
@@ -9,7 +9,6 @@
 
   &.is-style-overlay {
     height: 0;
-    min-height: 0;
   }
 
 }

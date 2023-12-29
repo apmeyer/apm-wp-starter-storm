@@ -2,8 +2,6 @@
 
 .main-menu {
 
-  // @include for-below-menu-breakpoint {}
-
   @include for-above-menu-breakpoint {
 
     ul {
@@ -35,10 +33,10 @@
       > li {
         align-items: center;
         display: flex;
-        height: var(--apm-theme-main-menu-height);
+        min-height: var(--apm-theme-main-menu-height);
         margin: 0;
         position: relative;
-        transition: height var(--apm-theme-header-compression-speed) ease;
+        transition: min-height var(--apm-theme-header-compression-speed) ease;
 
         a {
           font-weight: 600;

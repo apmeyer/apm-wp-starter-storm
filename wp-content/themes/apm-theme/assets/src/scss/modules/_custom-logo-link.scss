@@ -9,7 +9,9 @@
     height: auto;
     max-height: 80%;
     max-width: 11rem;
-    transition: height var(--apm-theme-header-compression-speed) ease;
+    transition:
+            height var(--apm-theme-header-compression-speed) ease,
+            width var(--apm-theme-header-compression-speed) ease;
     width: auto;
   }
 

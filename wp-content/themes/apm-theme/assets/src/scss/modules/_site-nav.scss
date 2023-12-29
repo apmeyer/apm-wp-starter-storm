@@ -16,7 +16,7 @@
       border: none;
       cursor: pointer;
       display: flex;
-      height: var(--apm-theme-mobile-header-bar-height);
+      height: var(--apm-theme-main-menu-height);
       margin: 0;
       right: 100%;
       padding: 0 1rem;
@@ -31,11 +31,11 @@
       box-shadow: 0 0 1rem rgba(0,0,0,0.15);
       display: none;
       height: 100vh;
-      padding: var(--apm-theme-mobile-header-bar-height) 0;
+      padding: var(--apm-theme-main-menu-height) 0;
       position: absolute;
       right: 0;
       top: 0;
-      transition: width .25s linear;
+      transition: width .25s linear, padding var(--apm-theme-header-compression-speed) ease;
       width: 0;
       z-index: 1;
 

@@ -3,16 +3,21 @@
 @use 'modules' as *;
 
 body {
-  --apm-theme-header-compression-speed: .5s;
-  --apm-theme-utility-menu-height: 2rem;
-  --apm-theme-main-menu-height: 5rem;
-  --apm-theme-mobile-header-bar-height: 4rem;
-  --apm-theme-header-wrap-height: 7rem;
+
+  // Header Properties
+  --apm-theme-header-compression-speed: 0.5s;
+  --apm-theme-utility-menu-height:      2rem;
+  --apm-theme-main-menu-height:         4rem;
+  --apm-theme-header-wrap-height:       4rem;
 
   &.is-compressed {
-    --apm-theme-utility-menu-height: 1.6rem;
-    --apm-theme-main-menu-height: 4rem;
-    --apm-theme-mobile-header-bar-height: 3rem;
+    --apm-theme-utility-menu-height:    1.5rem;
+    --apm-theme-main-menu-height:       4.0rem;
+  }
+
+  @include for-above-menu-breakpoint {
+    --apm-theme-main-menu-height:       5rem;
+    --apm-theme-header-wrap-height:     7rem;
   }
 
 }

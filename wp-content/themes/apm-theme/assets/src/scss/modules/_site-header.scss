@@ -14,15 +14,18 @@
     box-shadow: 0 0 1rem rgba(0,0,0,0.15);
   }
 
+  &__inner-container {
+    min-height: var(--apm-theme-main-menu-height);
+    transition: min-height var(--apm-theme-header-compression-speed) ease;
+  }
+
   @include for-below-menu-breakpoint {
     padding-left: .5rem;
 
     &__inner-container {
       align-items: center;
       display: flex;
-      height: var(--apm-theme-mobile-header-bar-height);
       position: relative;
-      transition: height var(--apm-theme-header-compression-speed) ease;
     }
 
   }
