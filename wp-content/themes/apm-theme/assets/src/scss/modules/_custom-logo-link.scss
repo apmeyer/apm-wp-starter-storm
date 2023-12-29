@@ -1,28 +1,16 @@
 @use '../abstracts' as *;
 
 .custom-logo-link {
-  align-items: center;
-  display: flex;
-  height: 100%;
 
   img {
+    display: block;
     height: auto;
-    max-height: 80%;
-    max-width: 11rem;
-    transition:
-            height var(--apm-theme-header-compression-speed) ease,
-            width var(--apm-theme-header-compression-speed) ease;
-    width: auto;
-  }
+    max-height: 4rem;
+    max-width: 9rem;
+    transition: max-height var(--apm-theme-header-compression-speed) var(--apm-theme-header-compression-function);
+    width: 100%;
 
-  &:focus {
-    outline: none;
-
-    img {
-      outline: 5px auto Highlight;
-      outline: 5px auto -webkit-focus-ring-color;
-      outline-offset: .25rem;
-    }
+    body.is-compressed & { max-height: 3rem }
 
   }
 

@@ -16,13 +16,14 @@
       border: none;
       cursor: pointer;
       display: flex;
+      justify-content: center;
       height: var(--apm-theme-main-menu-height);
       margin: 0;
       right: 100%;
-      padding: 0 1rem;
+      padding: 0 1.25rem;
       position: absolute;
       top: 0;
-      transition: height var(--apm-theme-header-compression-speed) ease;
+      transition: height var(--apm-theme-header-compression-speed) linear;
       z-index: 2;
     }
 
@@ -35,7 +36,7 @@
       position: absolute;
       right: 0;
       top: 0;
-      transition: width .25s linear, padding var(--apm-theme-header-compression-speed) ease;
+      transition: width .25s linear, padding var(--apm-theme-header-compression-speed) linear;
       width: 0;
       z-index: 1;
 
@@ -60,6 +61,15 @@
   @include for-above-menu-breakpoint {
 
     &__button { display: none; }
+
+  }
+
+  @media (prefers-reduced-motion) {
+
+    &__inner-container {
+      transition: none !important;
+      transition-duration: 0s !important;
+    }
 
   }
 

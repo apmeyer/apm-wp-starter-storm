@@ -196,7 +196,7 @@ const addEventListeners = function() {
                 if ( button.getAttribute('aria-expanded') === 'false' ) {
                     button.setAttribute( 'aria-expanded', 'true' )
                     button.previousSibling.setAttribute( 'aria-expanded', 'true' )
-                    menu.style.display = 'block'
+                    menu.classList.add( 'is-mobile-visible' )
                     setTimeout( () => {
                         menu.style.maxHeight = menu.scrollHeight + "px"
                     }, 5 )
@@ -205,7 +205,7 @@ const addEventListeners = function() {
                     button.previousSibling.setAttribute( 'aria-expanded', 'false' )
                     menu.style.maxHeight = 0 + "px"
                     setTimeout( () => {
-                        menu.removeAttribute( 'style' )
+                        menu.classList.remove( 'is-mobile-visible' )
                     }, 250 )
                 }
 

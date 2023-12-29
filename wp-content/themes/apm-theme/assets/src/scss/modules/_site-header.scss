@@ -1,13 +1,12 @@
 @use '../abstracts' as *;
 
 .site-header {
-  transition:
-          background-color var(--apm-theme-header-compression-speed) ease,
-          box-shadow var(--apm-theme-header-compression-speed) ease,
-          min-height var(--apm-theme-header-compression-speed) ease;
   position: relative;
+  transition: background-color var(--apm-theme-header-compression-speed) var(--apm-theme-header-compression-function),
+              box-shadow var(--apm-theme-header-compression-speed) var(--apm-theme-header-compression-function),
+              min-height var(--apm-theme-header-compression-speed) var(--apm-theme-header-compression-function);
   width: 100vw;
-  
+
   body:not(.is-at-top) .site-header-wrap.is-style-overlay &,
   .site-header-wrap:not(.is-style-overlay) & {
     background-color: var(--wp--preset--color--brand-a);
@@ -16,7 +15,7 @@
 
   &__inner-container {
     min-height: var(--apm-theme-main-menu-height);
-    transition: min-height var(--apm-theme-header-compression-speed) ease;
+    transition: min-height var(--apm-theme-header-compression-speed) var(--apm-theme-header-compression-function);
   }
 
   @include for-below-menu-breakpoint {
@@ -44,6 +43,7 @@
 
     &__inner-container {
       align-items: center;
+      column-gap: 2rem;
       display: flex;
       justify-content: space-between;
       max-width: var(--wp--style--global--wide-size);

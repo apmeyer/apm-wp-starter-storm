@@ -36,7 +36,7 @@
         min-height: var(--apm-theme-main-menu-height);
         margin: 0;
         position: relative;
-        transition: min-height var(--apm-theme-header-compression-speed) ease;
+        transition: min-height var(--apm-theme-header-compression-speed) var(--apm-theme-header-compression-function);
 
         a {
           font-weight: 600;
@@ -54,9 +54,13 @@
       box-shadow: 0 .5rem .5rem rgba(0, 0, 0, 0.2);
       display: none;
       left: 0;
+      max-height: none !important; // *
       position: absolute;
       top: 100%;
       width: 15rem;
+
+      // * !important to overwrite any inline styles left behind
+      // by JS for animated collapsable menus on mobile
 
       > li {
         width: 100%;

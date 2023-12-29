@@ -5,19 +5,32 @@
 body {
 
   // Header Properties
-  --apm-theme-header-compression-speed: 0.5s;
-  --apm-theme-utility-menu-height:      2rem;
-  --apm-theme-main-menu-height:         4rem;
-  --apm-theme-header-wrap-height:       4rem;
+  --apm-theme-header-compression-speed:     0.5s;
+  --apm-theme-header-compression-function:  ease;
+  --apm-theme-utility-menu-height:          2rem;
+  --apm-theme-main-menu-height:             4rem;
+  --apm-theme-header-wrap-height:           4rem;
+
+  // Hamburger Properties
+  --apm-hamburger-bar-color:                var(--wp--preset--color--brand-d);
+  --apm-hamburger-bar-height:               4px;
+  --apm-hamburger-bar-spacing:              7px;
+  --apm-hamburger-box-height:               36px;
+  --apm-hamburger-bar-width:                36px;
+  --apm-hamburger-bar-speed:                .12s;
 
   &.is-compressed {
-    --apm-theme-utility-menu-height:    1.5rem;
-    --apm-theme-main-menu-height:       4.0rem;
+    --apm-theme-utility-menu-height:        1.5rem;
+    --apm-theme-main-menu-height:           4.0rem;
   }
 
   @include for-above-menu-breakpoint {
-    --apm-theme-main-menu-height:       5rem;
-    --apm-theme-header-wrap-height:     7rem;
+    --apm-theme-main-menu-height:           5rem;
+    --apm-theme-header-wrap-height:         7rem;
+  }
+
+  @media (prefers-reduced-motion) {
+    --apm-theme-header-compression-speed:   0s;
   }
 
 }

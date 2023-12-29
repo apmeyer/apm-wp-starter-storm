@@ -28,7 +28,7 @@
       justify-content: flex-end;
       gap: 2rem;
       max-width: var(--wp--style--global--wide-size);
-      transition: min-height var(--apm-theme-header-compression-speed) ease;
+      transition: min-height var(--apm-theme-header-compression-speed) var(--apm-theme-header-compression-function);
       width: 100%;
     }
 

@@ -32,9 +32,18 @@
 //  Breakpoints
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 @mixin for-below-menu-breakpoint {
-  @media ( max-width: 949px ) { @content; }
+  @media ( max-width: 799px ) { @content; }
 }
 
 @mixin for-above-menu-breakpoint {
-  @media ( min-width: 950px ) { @content; }
+  @media ( min-width: 800px ) { @content; }
+}
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//  Accessibility
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+@mixin add-default-focus-styles {
+  outline: 5px auto Highlight;
+  outline: 5px auto -webkit-focus-ring-color;
 }

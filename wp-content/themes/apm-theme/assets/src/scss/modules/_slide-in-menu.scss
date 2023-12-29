@@ -14,6 +14,7 @@
         }
 
         + ul { display: block }
+
       }
 
     }
@@ -48,7 +49,17 @@
         text-decoration: none;
       }
 
+      &.is-mobile-visible { display: block }
+
     }
+    
+  }
+
+  @media (prefers-reduced-motion) {
+
+    button::after { transition: none !important; }
+
+    > ul > li > ul { transition: none !important; }
 
   }
 

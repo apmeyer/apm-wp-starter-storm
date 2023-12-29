@@ -1,13 +1,13 @@
-<header class="site-header-wrap" id="siteHeaderWrap">
-    <div class="site-header has-utility-menu" id="siteHeader">
-        <div class="site-header__inner-container">
+<header class="site-header-wrap" id="siteHeaderWrap"><?php // <-- handles sticky positioning and static height on scroll - is 0px wide ?>
+    <div class="site-header has-utility-menu" id="siteHeader"><?php // <-- handles side padding and overall width ?>
+        <div class="site-header__inner-container"><?php // <!-- handles constrained centering of content ?>
 
             <?php echo get_custom_logo(); ?>
 
             <nav class="site-nav" id="siteNav">
                 <button class="site-nav__button" aria-expanded="false" aria-controls="mobileMenuWrap" id="mobileMenuButton">
                     <span class="screen-reader-text"><?php _e( 'Menu', 'apm-theme' ) ?></span>
-                    <span aria-hidden="true" class="apm-hamburger"><span></span></span>
+                    <span aria-hidden="true" class="hamburger-icon"><span></span></span>
                 </button>
                 <div class="site-nav__inner-container" id="mobileMenuWrap">
                     <div class="site-nav__menus">

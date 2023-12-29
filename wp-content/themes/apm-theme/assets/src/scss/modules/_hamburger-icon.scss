@@ -1,0 +1,79 @@
+@use '../abstracts' as *;
+
+.hamburger-icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: var(--apm-hamburger-box-height);
+  position: relative;
+  width: var(--apm-hamburger-box-width);
+
+  span,
+  span::before,
+  span::after {
+    background-color: var(--apm-hamburger-bar-color);
+    display: block;
+    height: var(--apm-hamburger-bar-height);
+    width: var(--apm-hamburger-bar-width);
+  }
+
+  span {
+    position: relative;
+    transition: background-color var(--apm-hamburger-bar-speed) linear;
+  }
+
+  span::before,
+  span::after {
+    content: '';
+    left: 0;
+    position: absolute;
+    transition:
+            top var(--apm-hamburger-bar-speed) linear var(--apm-hamburger-bar-speed),
+            bottom var(--apm-hamburger-bar-speed) linear var(--apm-hamburger-bar-speed),
+            transform var(--apm-hamburger-bar-speed) linear,
+            width var(--apm-hamburger-bar-speed) linear;
+  }
+
+  span::before { bottom: calc( 100% + var(--apm-hamburger-bar-spacing) ) }
+  span::after { top: calc( 100% + var(--apm-hamburger-bar-spacing) ) }
+
+}
+
+button[aria-expanded="true"] .hamburger-icon {
+
+  span { background-color: transparent }
+
+  span::before {
+    bottom: 0;
+    transform: rotate(-45deg);
+  }
+
+  span::after {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  span::before,
+  span::after {
+    transition:
+            top var(--apm-hamburger-bar-speed) linear,
+            bottom var(--apm-hamburger-bar-speed) linear,
+            transform var(--apm-hamburger-bar-speed) linear var(--apm-hamburger-bar-speed);
+  }
+
+}
+
+@media (prefers-reduced-motion) {
+
+  .hamburger-icon {
+
+    span,
+    span::after,
+    span::before {
+      transition: none !important;
+      transition-duration: 0s !important;
+    }
+
+  }
+
+}
