@@ -1,6 +1,16 @@
-<header class="site-header-wrap" id="siteHeaderWrap"><?php // <-- handles sticky positioning and static height on scroll - is 0px wide ?>
-    <div class="site-header has-utility-menu" id="siteHeader"><?php // <-- handles side padding and overall width ?>
-        <div class="site-header__inner-container"><?php // <!-- handles constrained centering of content ?>
+<?php
+/**
+ * .site-header-wrap | handles sticky positioning and static height on scroll - is 0px wide
+ * .site-header | handles side padding and overall width
+ * .site-header__inner-container | handles constrained centering of content
+ *
+ * .site-nav |
+ *
+ */
+?>
+<header class="site-header-wrap" id="siteHeaderWrap">
+    <div class="site-header has-utility-menu" id="siteHeader">
+        <div class="site-header__inner-container">
 
             <?php echo get_custom_logo(); ?>
 
