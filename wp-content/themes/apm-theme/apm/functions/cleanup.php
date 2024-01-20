@@ -14,11 +14,32 @@ function init(): void {
 
     add_action( 'init', 'APM_Functions\Cleanup\disable_emojis' );
     add_action( 'admin_init', 'APM_Functions\Cleanup\remove_dashboard_meta_boxes' );
+    add_action( 'wp_enqueue_scripts', 'APM_Functions\Cleanup\enqueue_global_styles_custom_css_fix' );
 
 }
 
-function remove_default_head_tags(): void {
+/*
+ * Temporary fix for theme.json block CSS not outputting in hybrid themes
+ *
+ * As of 1/9/23 this is still necessary. 😕
+ *
+ * @see https://developer.wordpress.org/news/2023/04/21/per-block-css-with-theme-json/#comment-1448
+ * @see https://github.com/WordPress/gutenberg/issues/52644
+ **/
+function enqueue_global_styles_custom_css_fix(): void {
 
+    if ( ! wp_theme_has_theme_json() ) return;
+
+    // Don't enqueue Customizer's custom CSS separately.
+    remove_action( 'wp_head', 'wp_custom_css_cb', 101 );
+
+    $custom_css  = wp_get_custom_css();
+    $custom_css .= wp_get_global_styles_custom_css();
+
+    if ( ! empty( $custom_css ) ) wp_add_inline_style( 'global-styles', $custom_css );
+}
+
+function remove_default_head_tags(): void {
     remove_action( 'wp_head', 'feed_links_extra', 3 );
     remove_action( 'wp_head', 'feed_links', 2 );
     remove_action( 'wp_head', 'rsd_link' );
@@ -31,7 +52,6 @@ function remove_default_head_tags(): void {
     remove_action( 'wp_head', 'start_post_rel_link' );
     remove_action( 'wp_head', 'rest_output_link_wp_head' );
     remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
-
 }
 
 function disable_emojis(): void {

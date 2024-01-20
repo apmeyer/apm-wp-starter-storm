@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "acf/slider",
+  "title": "Slider",
+  "description": "A basic slider – a starting point for customization",
+  "style": "file:./assets/dist/apm-block-slider.css",
+  "category": "apm-blocks",
+  "viewScript": [ "file:./assets/dist/script.js" ],
+  "editorScript": [ "file:./assets/dist/script.js" ],
+  "icon": "star",
+  "apiVersion": 2,
+  "keywords": [ "slider", "carousel", "slides", "frames" ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": [ "full" ],
+    "alignContent": false,
+    "alignText": false,
+    "anchor": true,
+    "customClassName": true,
+    "color": {
+      "text": true,
+      "background": true
+    },
+    "fullHeight": false,
+    "spacing": {
+      "margin": false,
+      "padding": false
+    }
+  },
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "brand-white"
+    }
+  }
+}

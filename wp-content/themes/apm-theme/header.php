@@ -15,9 +15,7 @@
 
     <a href="#mainContent" class="screen-reader-text"><?php _e( 'Skip to main content', 'apm-theme' ); ?></a>
 
-<!--    <div style="background-color: salmon; color: #ffffff; padding: .5rem 1rem; font-size: var(--wp--preset--font-size--ps); line-height: 1.2;">-->
-<!--        Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-<!--    </div>-->
+    <?php // Announcement bar would go here. Mobile menu bottom padding must account for it with extra bottom padding for scrolling. ?>
 
     <?php get_template_part( 'parts/site-header' ); ?>
 

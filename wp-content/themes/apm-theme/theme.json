@@ -241,14 +241,13 @@
             }
           }
         },
-        "css": ".wp-element-button { transition: background-color .25s ease, color .25s ease; border-color .25s ease; }"
+        "css": ".wp-element-button { transition: background-color .25s ease, color .25s ease, border-color .25s ease; }"
       },
       "core/buttons": {
         "spacing": {
           "blockGap": "0.75rem"
         }
       },
-      "core/columns": {},
       "core/code": {
         "border": {
           "color": "var(--wp--preset--color--brand-e)",
@@ -310,23 +309,20 @@
       "button": {
         ":active": {
           "color": {
-            "background": "var(--wp--preset--color--brand-e)",
-            "text": "var(--wp--preset--color--brand-c)"
+            "background": "#eeeeee",
+            "text": "#cccccc"
           }
         },
         ":focus": {
           "color": {
-            "background": "var(--wp--preset--color--contrast-2)",
-            "text": "var(--wp--preset--color--brand-c)"
+            "background": "var(--wp--preset--color--brand-d)",
+            "text": "var(--wp--preset--color--brand-a)"
           },
           "outline": {
-            "color": "var(--wp--preset--color--contrast)",
-            "offset": "2px",
-            "style": "dotted",
-            "width": "1px"
+            "offset": ".25rem"
           },
           "border": {
-            "color": "var(--wp--preset--color--contrast-2)"
+            "color": "var(--wp--preset--color--brand-d)"
           }
         },
         ":hover": {
@@ -335,12 +331,14 @@
             "text": "var(--wp--preset--color--brand-a)"
           },
           "border": {
-            "color": "transparent"
+            "color": "var(--wp--preset--color--brand-d)"
           }
         },
         "border": {
           "radius": "0",
-          "color": "transparent"
+          "color": "var(--wp--preset--color--brand-e)",
+          "style": "solid",
+          "width": "1px"
         },
         "color": {
           "background": "var(--wp--preset--color--brand-e)",

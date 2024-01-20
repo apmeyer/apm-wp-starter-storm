@@ -21,8 +21,10 @@ function init(): void {
 
     add_action( 'init', 'APM_Functions\Block_Editor\register_block_pattern_categories' );
     add_action( 'init', 'APM_Functions\Block_Editor\register_block_styles' );
+
     add_editor_style( 'assets/dist/css/editor.min.css' );
 
+    // Unused
     // add_action( 'init', 'APM_Functions\Block_Editor\storm_block_stylesheets' );
     // add_filter( 'default_content', 'APM_Functions\Block_Editor\assign_default_post_type_layout', 10, 2 );
 
@@ -32,6 +34,11 @@ function init(): void {
 
 }
 
+
+/**
+ * Prepare some categories for organization custom blocks in the block
+ * editor left sidebar block picker
+ */
 function register_block_pattern_categories(): void {
 
     register_block_pattern_category(
@@ -60,21 +67,31 @@ function register_block_pattern_categories(): void {
 
 }
 
+
+/**
+ * Add custom block styles. These appear as selectable style options
+ * when editing block styles. When selected, a CSS class name is added
+ * to the block. Styles are either applied inline if defined, or must
+ * be included elsewhere in theme/block stylesheets. Some "!important"
+ * declarations may be necessary.
+ */
 function register_block_styles(): void {
 
     register_block_style(
-        'core/spacer', [
-            'name'         => 'red-border',
-            'label'        => __( 'Red Border', 'APM' ),
+        'core/buttons', [
+            'name'         => 'small-buttons',
+            'label'        => __( 'Small', 'APM' ),
             'inline_style' => '
-               .is-style-red-border {
-                    border: 1px solid red;
+               .is-style-small-buttons .wp-element-button {
+                    padding: .25rem .75rem !important;
+                    font-size: var(--wp--preset--font-size--ps);
                 }
             '
         ]
     );
 
 }
+
 
 /**
  * Checks the theme templates directory for a file and uses the block code
@@ -112,17 +129,18 @@ function assign_default_post_type_layout( $content, $post ) {
 
 }
 
-//function enqueue_block_stylesheets(): void {
-//
-//    // These should only output when the blocks are used
-//    wp_enqueue_block_style(
-//        'core/spacer',
-//        array(
-//            'handle' => 'APM-spacer-block',
-//            'src'    => get_parent_theme_file_uri( 'assets/dist/css/APM-block-spacer.css' ),
-//            'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-//            'path'   => get_parent_theme_file_path( 'assets/dist/css/APM-block-spacer.css' ),
-//        )
-//    );
-//
-//}
+
+function enqueue_block_stylesheets(): void {
+
+    // These should only output when the blocks are used
+    wp_enqueue_block_style(
+        'core/spacer',
+        array(
+            'handle' => 'apm-spacer-block',
+            'src'    => get_parent_theme_file_uri( 'assets/dist/css/apm-block-spacer.css' ),
+            'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
+            'path'   => get_parent_theme_file_path( 'assets/dist/css/apm-block-spacer.css' ),
+        )
+    );
+
+}
