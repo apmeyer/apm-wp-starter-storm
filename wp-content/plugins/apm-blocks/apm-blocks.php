@@ -7,6 +7,8 @@ Plugin URI: https://apmeyer.com
 Description: Custom blocks for a custom theme.
 Version: 1.0.0
 Text Domain: apm-blocks
+License: Released under the MIT License
+Copyright: 2024 apmeyer llc
 */
 
 namespace APM_Blocks;
