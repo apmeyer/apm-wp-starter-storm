@@ -105,6 +105,8 @@ function register_blocks(): void {
 
 
 /**
+ * Add block categories.
+ *
  * @param $categories
  * @param $post
  *
@@ -126,6 +128,8 @@ function add_block_categories( $categories, $post ): array {
 
 
 /**
+ * Register assets that may be shared across blocks
+ *
  * @return void
  */
 function register_shared_assets(): void {
@@ -137,6 +141,10 @@ function register_shared_assets(): void {
 
 
 /**
+ * Rather than use the block.json methods of enqueuing styles, which currently
+ * (1/23/24) always output styles into th header, we'll use our own method of
+ * outputting styles into the header ONLY when a block is used.
+ *
  * @return void
  */
 function add_custom_block_css_to_head_when_block_is_in_content(): void {
