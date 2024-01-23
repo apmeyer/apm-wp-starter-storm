@@ -144,3 +144,24 @@ function enqueue_block_stylesheets(): void {
     );
 
 }
+
+
+/**
+ * Accepts a WordPress Post object, parses blocks from post_content,
+ * then loops through the blocks outputting them to the screen.
+ *
+ * @param  object|bool  $post_object  object|null
+ *
+ * @return void
+ */
+function the_block_pattern( object|bool $post_object ): void {
+
+    if ( empty( $post_object ) ) return;
+
+    $content = $post_object->post_content;
+    $blocks = parse_blocks( $content );
+    foreach ( $blocks as $block ) {
+        echo apply_filters( 'the_content', render_block( $block ) );
+    }
+
+}
