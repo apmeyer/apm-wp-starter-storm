@@ -76,11 +76,11 @@ function replace_content( $content ): string {
 
     if ( is_404() ) { // && function_exists( 'get_field' )
 
-        write_log( 'Is 404 error page' );
+//        write_log( 'Is 404 error page' );
 
         $post_object = get_field( 'site_pattern_404', 'option' );
 
-        write_log( $post_object );
+//        write_log( $post_object );
 
     }
 

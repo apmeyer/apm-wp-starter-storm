@@ -1,0 +1,13 @@
+.apm-accordion-item__inner-container > .wp-block-group {
+    display: none;
+}
+
+.wp-block-acf-accordion-item {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.wp-block-acf-accordion-item.is-selected .apm-accordion-item__inner-container > .wp-block-group,
+.wp-block-acf-accordion-item.has-child-selected .apm-accordion-item__inner-container > .wp-block-group {
+    display: block;
+}

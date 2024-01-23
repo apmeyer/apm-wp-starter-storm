@@ -12,8 +12,6 @@ const apmBlockInit = function() {
 
 const apmSetupBlock = function( block ) {
 
-    console.log( 'Slider setup...' );
-
     const slider = block.querySelector( '.swiper' )
     const mainSliderNextButton = block.querySelector('.apm-slider .swiper-button-next')
     const mainSliderPrevButton = block.querySelector('.apm-slider .swiper-button-prev')

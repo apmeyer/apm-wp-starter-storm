@@ -41,6 +41,7 @@ if ( function_exists( 'get_field' ) ) {
 
 } else {
 
+    // If ACF is not active, display an admin warning on the plugins screen
     add_action( 'admin_notices', function() {
 
         $screen = get_current_screen();
@@ -69,6 +70,10 @@ function get_active_blocks(): array {
         [
             'name' => 'slider',
             'style-dependencies' => [ 'swiper' ]
+        ],
+        [
+            'name' => 'accordion-item',
+            'style-dependencies' => []
         ]
     ];
 
@@ -91,7 +96,7 @@ function register_blocks(): void {
         $path = APM_BLOCKS_PLUGIN_DIRECTORY . '/blocks/' . $block['name'];
         if ( file_exists( $path ) ) {
             register_block_type( $path );
-            if ( is_admin() ) wp_enqueue_style( 'apm-block-'.$block['name'], plugin_dir_url( __FILE__ ) . 'blocks/' . $block['name'] . '/assets/dist/style.css', [ 'swiper' ], APM_BLOCKS_PLUGIN_VERSION );
+            if ( is_admin() ) wp_enqueue_style( 'apm-block-'.$block['name'], plugin_dir_url( __FILE__ ) . 'blocks/' . $block['name'] . '/assets/dist/style.css', $block['style-dependencies'], APM_BLOCKS_PLUGIN_VERSION );
         }
     }
 
@@ -154,5 +159,46 @@ function add_custom_block_css_to_head_when_block_is_in_content(): void {
             echo '<!-- End custom block css -->';
         } );
     }
+
+}
+
+
+/**
+ * Prepare CSS class names from native block settings
+ *
+ * @param $block
+ * @param $class_name
+ *
+ * @return string
+ */
+function get_wp_block_classes( $block, $class_name = '' ): string {
+
+    if ( !empty( $block['className'] ) ) $class_name .= ' ' . $block['className'];
+
+    if ( !empty( $block['align'] ) ) $class_name .= ' align' . $block['align'];
+
+    if ( !empty( $block['backgroundColor'] ) ) $class_name .= ' has-' . $block['backgroundColor'] . '-background-color';
+
+    if ( !empty( $block['textColor'] ) ) $class_name .= ' has-' . $block['textColor'] . '-color';
+
+    return $class_name;
+
+}
+
+
+/**
+ * Get the HTML id/anchor value from the block
+ *
+ * @param $block
+ *
+ * @return string
+ */
+function get_block_id( $block ): string {
+
+    $id = $block['id'];
+
+    if ( !empty( $block['anchor'] ) ) $id = $block['anchor'];
+
+    return $id;
 
 }
