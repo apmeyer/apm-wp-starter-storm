@@ -13,6 +13,8 @@ Copyright: 2024 apmeyer llc
 
 namespace APM_Blocks;
 
+global $acf;
+
 define( "APM_BLOCKS_PLUGIN_NAME", __( 'APM Blocks', 'apm-blocks' ) );
 define( "APM_BLOCKS_PLUGIN_FILE", __FILE__ );
 define( "APM_BLOCKS_PLUGIN_VERSION", '1.0.0' );
@@ -20,12 +22,11 @@ define( "APM_BLOCKS_PLUGIN_DIRECTORY", __DIR__ );
 define( "APM_BLOCKS_PLUGIN_URL", plugin_dir_url( __FILE__ ) );
 define( "APM_BLOCKS_PLUGIN_PATH", plugin_dir_path( APM_BLOCKS_PLUGIN_FILE ) );
 
-
 /**
  * Custom blocks are dependent on the ACF plugin being present and active.
  * We'll check for the existence of an ACF function before setting up these custom blocks.
  */
-if ( function_exists( 'get_field' ) ) {
+if ( isset( $acf->version ) && $acf->version >= 6 ) {
 
     add_filter( 'block_categories_all', 'APM_Blocks\add_block_categories', 10, 2 );
     add_action( 'init', 'APM_Blocks\register_blocks', 5 );
@@ -48,7 +49,7 @@ if ( function_exists( 'get_field' ) ) {
 
         if ( isset( $screen->base ) && $screen->base === 'plugins' ) {
             wp_admin_notice(
-                sprintf( __( 'The %s plugin depends on the Advanced Custom Fields (ACF) Pro plugin. Install and activate ACF Pro to use %s.', 'apm-blocks' ), APM_BLOCKS_PLUGIN_NAME, APM_BLOCKS_PLUGIN_NAME ),
+                sprintf( __( 'Install and activate the Advanced Custom Fields Pro plugin v6+ to use %s.', 'apm-blocks' ), APM_BLOCKS_PLUGIN_NAME ),
                 [
                     'type' => 'warning',
                     'dismissible' => true
@@ -167,11 +168,11 @@ function add_custom_block_css_to_head_when_block_is_in_content(): void {
  * Prepare CSS class names from native block settings
  *
  * @param $block
- * @param $class_name
+ * @param  string  $class_name
  *
  * @return string
  */
-function get_wp_block_classes( $block, $class_name = '' ): string {
+function get_wp_block_classes( $block, string $class_name = '' ): string {
 
     if ( !empty( $block['className'] ) ) $class_name .= ' ' . $block['className'];
 
