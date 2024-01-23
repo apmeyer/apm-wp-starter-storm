@@ -1,0 +1,39 @@
+@use "shared" as *;
+
+.apm-accordion-item__inner-container {
+
+    > .wp-block-group { display: none; }
+
+    > .wp-block-heading {
+        @include add-button-pseudo-element-indicator();
+        padding: 1rem 1rem 1rem 2rem;
+    }
+
+}
+
+.wp-block {
+
+    .wp-block-acf-accordion-item {
+        margin-block-start: 0;
+        margin-block-end: 0;
+
+        + .wp-block-acf-accordion-item {
+            border-top: 1px solid var(--wp--preset--color--brand-e);
+        }
+
+        &.is-selected .apm-accordion-item__inner-container > .wp-block-group,
+        &.has-child-selected .apm-accordion-item__inner-container > .wp-block-group {
+            display: block;
+            max-height: none;
+            opacity: 1;
+        }
+
+        &.is-selected .apm-accordion-item__inner-container > .wp-block-heading::before,
+        &.has-child-selected .apm-accordion-item__inner-container > .wp-block-heading::before {
+            margin-top: -.5rem;
+            transform: rotate(135deg);
+        }
+
+    }
+
+}

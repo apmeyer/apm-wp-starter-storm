@@ -1,0 +1,17 @@
+@mixin add-button-pseudo-element-indicator() {
+
+  &::before {
+    border-left: 3px solid gray;
+    border-bottom: 3px solid gray;
+    content: '';
+    height: 1rem;
+    left: 0;
+    margin-top: -.75rem;
+    position: absolute;
+    top: 50%;
+    transform: rotate(-45deg);
+    transition: transform .15s linear, margin .15s linear;
+    width: 1rem;
+  }
+
+}

@@ -60,17 +60,35 @@
       "oF" : 0,
       "pg" : 0
     },
-    "\/blocks\/accordion-item\/assets\/src\/editor-style.css" : {
-      "aP" : 1,
+    "\/blocks\/accordion-item\/assets\/src\/_shared.scss" : {
+      "aP" : 0,
       "bl" : 0,
-      "ci" : 0,
       "co" : 0,
-      "ft" : 16,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/blocks\/accordion-item\/assets\/src\/_shared.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
+    "\/blocks\/accordion-item\/assets\/src\/editor-style.scss" : {
+      "aP" : 0,
+      "bl" : 0,
+      "co" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
       "ma" : 0,
       "oA" : 0,
       "oAP" : "\/blocks\/accordion-item\/assets\/dist\/editor-style.css",
       "oF" : 2,
-      "pg" : 0
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
     },
     "\/blocks\/accordion-item\/assets\/src\/script.js" : {
       "bF" : 4,
