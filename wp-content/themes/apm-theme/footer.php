@@ -1,5 +1,3 @@
-        </div><?php // closes #mainContent div in header.php ?>
-
         <?php
 
             // Check for ACF, then get block pattern for site footer

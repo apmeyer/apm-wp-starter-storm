@@ -18,5 +18,3 @@
     <?php // Announcement bar would go here. Mobile menu bottom padding must account for it with extra bottom padding for scrolling. ?>
 
     <?php get_template_part( 'parts/site-header' ); ?>
-
-    <div class="content-wrap" id="mainContent">

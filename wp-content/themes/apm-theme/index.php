@@ -1,6 +1,5 @@
 <?php get_header(); ?>
-    <main id="main" class="wp-site-blocks is-layout-flow">
-
+    <main id="main" class="main wp-site-blocks is-layout-flow">
         <?php
 
             // Typical loop to get post content
@@ -18,6 +17,5 @@
             }
 
         ?>
-
     </main>
 <?php get_footer(); ?>
