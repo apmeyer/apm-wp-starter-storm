@@ -4,7 +4,7 @@
  */
 const APM_Block_Accordions = {
 
-    speed: 250,
+    speed: .25 * 1000,
     isTransitioning: false,
     allowedFirstTags: [ 'H2', 'H3', 'H4', 'H5' ],
     accordions: document.querySelectorAll('.apm-accordion-item'),
@@ -51,7 +51,6 @@ const APM_Block_Accordions = {
         button.setAttribute( 'aria-expanded', 'false' )
 
         setTimeout( () => {
-            contentContainer.classList.add('is-hidden')
             contentContainer.classList.remove('is-visible')
             contentContainer.classList.remove('is-leaving')
             button.setAttribute( 'aria-expanded', 'false' )
@@ -61,12 +60,11 @@ const APM_Block_Accordions = {
 
     expandContent: function( button, contentContainer ) {
 
-        contentContainer.classList.remove('is-hidden')
         button.setAttribute( 'aria-expanded', 'true' )
-        contentContainer.style.maxHeight = contentContainer.scrollHeight + "px"
+        contentContainer.classList.add('is-visible')
 
         setTimeout( () => {
-            contentContainer.classList.add('is-visible')
+            contentContainer.style.height = contentContainer.scrollHeight + "px"
         }, 1 )
 
         setTimeout( () => {
@@ -83,7 +81,7 @@ const APM_Block_Accordions = {
 
             this.isTransitioning = true
 
-            if ( contentContainer.style.maxHeight ) {
+            if ( contentContainer.style.height ) {
                 this.collapseContent( button, contentContainer )
             } else {
                 this.expandContent( button, contentContainer )
@@ -103,8 +101,8 @@ const APM_Block_Accordions = {
         resizeObserver.observe( document.body )
     },
 
-    // Since animated accordion item heights require setting an inline max-height style,
-    // we end up needing to watch the page for resizing, updating those max-height values
+    // Since animated accordion item heights require setting an inline height style,
+    // we end up needing to watch the page for resizing, updating those height values
     onResize: function() {
 
         const accordionContentBlocks = document.querySelectorAll('.apm-accordion-item__inner-container > .wp-block-group:not(.hide-overflow)')
@@ -112,7 +110,7 @@ const APM_Block_Accordions = {
         if ( this.isTransitioning || !accordionContentBlocks ) return
 
         accordionContentBlocks.forEach( block => {
-            block.style.maxHeight = block.scrollHeight + "px"
+            block.style.height = block.scrollHeight + "px"
         } )
 
     }

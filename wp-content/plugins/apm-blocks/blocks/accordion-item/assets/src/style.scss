@@ -1,56 +1,59 @@
 @use "shared" as *;
 
 .apm-accordion-item {
+  --apm-accordion-speed: .25s;
+  --apm-timing-function: linear;
+
   margin-top: 0;
 
-  + .apm-accordion-item {
-    border-top: 1px solid var(--wp--preset--color--brand-e);
-  }
+  + .apm-accordion-item { border-top: 1px solid var(--wp--preset--color--brand-e) }
 
-  &__inner-container > *:first-child { margin-top: 0; }
+  &__inner-container {
 
-  h3 {
-    margin: 0;
-    padding: 1rem 0;
-
-    &:has(button) { padding: 0; }
-
-    button {
-      @include add-button-pseudo-element-indicator;
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: block;
-      font-family: inherit;
-      font-size: inherit;
-      font-weight: inherit;
-      line-height: inherit;
+    > *:is(h2, h3, h4, h5, h6) {
       margin: 0;
-      padding: 1rem 1rem 1rem 2rem;
-      position: relative;
-      text-align: left;
-      width: 100%;
-      -webkit-appearance: none;
-      -webkit-border-radius: 0;
+      padding: 1rem 0;
 
-      &[aria-expanded="true"]::before {
-        margin-top: -.5rem;
-        transform: rotate(135deg);
+      &:has(button) { padding: 0; }
+
+      button {
+        @include add-button-pseudo-element-indicator;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: block;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        margin: 0;
+        padding: 1rem 1rem 1rem 2rem;
+        position: relative;
+        text-align: left;
+        width: 100%;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
+
+        &[aria-expanded="true"]::before {
+          margin-top: -.5rem;
+          transform: rotate(135deg);
+        }
+
       }
 
     }
 
-  }
-
-  &__inner-container {
-
     > .wp-block-group {
-      max-height: 0;
+      display: none;
+      height: 0;
       opacity: 0;
-      padding: 0 0 2rem 2rem;
+      padding: 0 0 0 2rem;
       position: relative;
-      transition: opacity .25s linear, max-height .25s linear;
+      transition: opacity var(--apm-accordion-speed) var(--apm-timing-function), height var(--apm-accordion-speed) var(--apm-timing-function);
       z-index: 2;
+
+      > *:last-child { margin-bottom: 2rem; }
+
     }
 
   }
@@ -59,11 +62,14 @@
 
     &.hide-overflow { overflow: hidden }
 
-    &.is-visible { opacity: 1 }
+    &.is-visible {
+      display: block;
+      opacity: 1;
+    }
 
     &.is-leaving { opacity: 0 }
 
-    &.is-hidden { display: none }
+    // &.is-hidden { display: none }
 
   }
 

@@ -6,7 +6,6 @@ const APM_Tabs = {
 
     init: function() {
         const blocks = document.querySelectorAll( '.apm-tabs' )
-        console.log( blocks )
         if ( blocks ) this.setupTabSets( blocks )
     },
 

@@ -1,5 +1,11 @@
 @use '../abstracts' as *;
 
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 html {
   scroll-padding-top: var(--apm-theme-mobile-header-bar-height);
   scroll-behavior: smooth;
