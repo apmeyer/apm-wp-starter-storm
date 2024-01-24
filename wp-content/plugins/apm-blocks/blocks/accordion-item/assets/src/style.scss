@@ -54,7 +54,14 @@
 
       > *:last-child { margin-bottom: 2rem; }
 
+      .no-js & {
+        display: block;
+        height: auto;
+        opacity: 1;
+      }
+
     }
+
 
   }
 
@@ -68,9 +75,7 @@
     }
 
     &.is-leaving { opacity: 0 }
-
-    // &.is-hidden { display: none }
-
+    
   }
 
 }
