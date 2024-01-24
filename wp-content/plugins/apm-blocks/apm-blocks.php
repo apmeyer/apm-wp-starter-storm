@@ -75,6 +75,10 @@ function get_active_blocks(): array {
         [
             'name' => 'accordion-item',
             'style-dependencies' => []
+        ],
+        [
+            'name' => 'tabs',
+            'style-dependencies' => []
         ]
     ];
 

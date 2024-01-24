@@ -1,0 +1,19 @@
+.apm-slider {
+  color: seagreen;
+  position: relative;
+
+  .swiper-slide {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 20rem;
+    padding-bottom: 4rem;
+  }
+
+  .swiper-button {
+    background: none;
+    border: none;
+    transform: translateY(-2rem);
+  }
+
+}

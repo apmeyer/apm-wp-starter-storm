@@ -12,13 +12,15 @@
  * @param   array $context The context provided to the block by the post or it's parent block.
  */
 
+if ( !isset( $block ) ) $block = null;
+
 $slides = [ 'Slide 1', 'Slide 2', 'Slide 3' ]
 
 ?>
 
 <?php if ( !empty( $slides ) ) : ?>
 
-    <div class="apm-slider <?php // Add general block classes class ?>">
+    <div class="<?php esc_attr_e( APM_Blocks\get_wp_block_classes( $block, 'apm-slider' ) ) ?>"  id="<?php esc_attr_e( APM_Blocks\get_block_id( $block ) ); ?>">
         <div class="apm-slider__inner-container">
 
             <div class="swiper">

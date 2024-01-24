@@ -8,8 +8,9 @@ it as a design element that would be output to the page, and
 using instead as an admin reference.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .edit-post-visual-editor__post-title-wrapper {
+  background-color: #f0f0f0;
   margin: 0 !important;
-  padding: 1rem !important;
+  padding: .75rem !important;
 }
 
 .edit-post-visual-editor__post-title-wrapper h1 {
