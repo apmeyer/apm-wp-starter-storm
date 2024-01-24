@@ -62,7 +62,6 @@
 
     }
 
-
   }
 
   .wp-block-group {
@@ -75,7 +74,19 @@
     }
 
     &.is-leaving { opacity: 0 }
-    
+
+  }
+
+  @media (prefers-reduced-motion) {
+
+    &__inner-container {
+
+      > *:is(h2, h3, h4, h5, h6) button::before { transition: none; }
+
+      > .wp-block-group { transition: none }
+
+    }
+
   }
 
 }
