@@ -94,16 +94,14 @@ const APM_Tabs = {
 
 }
 
-function apmBlocksSetupTabs() {
-    APM_Tabs.init()
-}
-
 // Frontend
-if ( document.body && document.body.classList.contains( 'page' ) ) {
+if ( document.body && !document.body.classList.contains( 'wp-admin' ) ) {
     APM_Tabs.init()
 }
 
 // Backend
 if ( window.acf ) {
-    window.acf.addAction( 'render_block_preview/type=tabs', apmBlocksSetupTabs )
+    window.acf.addAction( 'render_block_preview/type=tabs', () => {
+        APM_Tabs.init()
+    } )
 }
