@@ -148,6 +148,17 @@
       "oAP" : "\/blocks\/slider\/assets\/dist\/script.asset.php",
       "oF" : 0
     },
+    "\/blocks\/slider\/assets\/dist\/script.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/blocks\/slider\/assets\/dist\/script-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
     "\/blocks\/slider\/assets\/dist\/style.css" : {
       "aP" : 1,
       "bl" : 0,

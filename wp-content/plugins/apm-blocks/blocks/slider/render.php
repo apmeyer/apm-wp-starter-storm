@@ -23,6 +23,10 @@ $slides = [ 'Slide 1', 'Slide 2', 'Slide 3' ]
     <div class="<?php esc_attr_e( APM_Blocks\get_wp_block_classes( $block, 'apm-slider' ) ) ?>"  id="<?php esc_attr_e( APM_Blocks\get_block_id( $block ) ); ?>">
         <div class="apm-slider__inner-container">
 
+            <?php if ( is_admin() ) : // This adds something to click on in the editor, to select the block  ?>
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2;"></div>
+            <?php endif; ?>
+
             <div class="swiper">
                 <div class="swiper-wrapper">
                     <?php foreach( $slides as $slide ) : ?>

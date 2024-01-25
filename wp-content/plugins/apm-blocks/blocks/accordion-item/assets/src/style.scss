@@ -45,18 +45,26 @@
 
     > .wp-block-group {
       display: none;
-      height: 0;
+      max-height: 0;
       opacity: 0;
       padding: 0 0 0 2rem;
       position: relative;
-      transition: opacity var(--apm-accordion-speed) var(--apm-timing-function), height var(--apm-accordion-speed) var(--apm-timing-function);
+      transition: opacity var(--apm-accordion-speed) var(--apm-timing-function), max-height var(--apm-accordion-speed) var(--apm-timing-function);
       z-index: 2;
 
-      > *:last-child { margin-bottom: 2rem; }
+      // Bottom padding does not play well with the max-height transition
+      // so we'll use a pseudo element instead to establish bottom padding
+      &::after {
+        content: '';
+        display:  block;
+        height: 1.5rem;
+      }
+
+      // > *:last-child { padding-bottom: 2rem; }
 
       .no-js & {
         display: block;
-        height: auto;
+        max-height: none;
         opacity: 1;
       }
 

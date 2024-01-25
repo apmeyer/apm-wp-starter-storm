@@ -31,7 +31,6 @@ const APM_Block_Accordions = {
 
             // contentContainer.hidden = true
             contentContainer.classList.add('hide-overflow')
-            contentContainer.classList.add('is-hidden')
 
             // Get the button created above
             const button = heading.querySelector('button')
@@ -64,7 +63,7 @@ const APM_Block_Accordions = {
         contentContainer.classList.add('is-visible')
 
         setTimeout( () => {
-            contentContainer.style.height = contentContainer.scrollHeight + "px"
+            contentContainer.style.maxHeight = contentContainer.scrollHeight + "px"
         }, 1 )
 
         setTimeout( () => {
@@ -81,7 +80,7 @@ const APM_Block_Accordions = {
 
             this.isTransitioning = true
 
-            if ( contentContainer.style.height ) {
+            if ( contentContainer.style.maxHeight ) {
                 this.collapseContent( button, contentContainer )
             } else {
                 this.expandContent( button, contentContainer )
@@ -110,7 +109,7 @@ const APM_Block_Accordions = {
         if ( this.isTransitioning || !accordionContentBlocks ) return
 
         accordionContentBlocks.forEach( block => {
-            block.style.height = block.scrollHeight + "px"
+            block.style.maxHeight = block.scrollHeight + "px"
         } )
 
     }

@@ -1,4 +1,4 @@
-const APM_Slider = {
+const APM_News_Slider = {
 
     init: function() {
 
@@ -14,17 +14,31 @@ const APM_Slider = {
 
     setupBlock: function( block ) {
 
-        const slider = block.querySelector( '.swiper' )
+        const sliderElement = block.querySelector( '.swiper' )
+
+        // If swiper has already been set up on this element, destroy it.
+        // This is for the block editor (backend) so that each time an ACF
+        // field selection is updated the swiper instance is created anew.
+        if ( sliderElement.swiper ) {
+            sliderElement.swiper.destroy( true, true )
+        }
+
         const paginationControls   = block.querySelector('.apm-slider .swiper-pagination')
         const mainSliderNextButton = block.querySelector('.apm-slider .swiper-button-next')
         const mainSliderPrevButton = block.querySelector('.apm-slider .swiper-button-prev')
 
-        const theSlider = new Swiper( slider, {
+        let swiperInstance = new Swiper( sliderElement, {
+            autoplay: {
+                delay: 5000
+            },
+            disableOnInteraction: true,
             autoHeight: false,
             loop: true,
+            effect: 'fade',
+            speed: 1000,
             pagination: {
                 el: paginationControls,
-                dynamicBullets: false // this is kind of cool when there are many dots (true)
+                clickable: true
             },
             navigation: {
                 nextEl: mainSliderNextButton,
@@ -36,16 +50,14 @@ const APM_Slider = {
 
 }
 
-function apmBlocksSetupSliders() {
-    APM_Slider.init()
-}
-
 // Frontend
-if ( document.body && document.body.classList.contains( 'page' ) ) {
-    APM_Slider.init()
+if ( document.body && !document.body.classList.contains( 'wp-admin' ) ) {
+    APM_News_Slider.init()
 }
 
 // Backend
 if ( window.acf ) {
-    window.acf.addAction( 'render_block_preview/type=slider', apmBlocksSetupSliders )
+    window.acf.addAction( 'render_block_preview/type=slider', () => {
+        APM_News_Slider.init()
+    } )
 }
