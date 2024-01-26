@@ -11,10 +11,10 @@
   &__inner-container {
 
     > *:is(h2, h3, h4, h5, h6) {
-      margin: 0;
+      margin: 0 !important;
       padding: 1rem 0;
 
-      &:has(button) { padding: 0; }
+      &:has(button) { padding: 0 }
 
       button {
         @include add-button-pseudo-element-indicator;
@@ -49,7 +49,6 @@
       opacity: 0;
       padding: 0 0 0 2rem;
       position: relative;
-      transition: opacity var(--apm-accordion-speed) var(--apm-timing-function), max-height var(--apm-accordion-speed) var(--apm-timing-function);
       z-index: 2;
 
       // Bottom padding does not play well with the max-height transition
@@ -74,7 +73,12 @@
 
   .wp-block-group {
 
-    &.hide-overflow { overflow: hidden }
+    &.hide-overflow {
+      transition:
+              opacity var(--apm-accordion-speed) var(--apm-timing-function),
+              max-height var(--apm-accordion-speed) var(--apm-timing-function);
+      overflow: hidden;
+    }
 
     &.is-visible {
       display: block;
